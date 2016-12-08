@@ -16,3 +16,6 @@ def message(request):
 def hello_template(request):
 	context = {"csrf_token": csrf.get_token(request)}
 	return render(request, "hello_form.html", context=context)
+
+def hello_template_usual_csrf(request):
+	return render(request, "hello_form_csrf.html")

@@ -1,0 +1,8 @@
+Hello<br>
+My Name is Manoj Kumar<br>
+<form method='post' action='message'>
+	{% csrf_token %}
+	<input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+	<input name='message' type=text value='hi'></input>
+	<input type='submit'></input>
+</form>
