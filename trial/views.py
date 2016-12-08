@@ -1,5 +1,6 @@
 from django.http  import HttpResponse
 from django.middleware import csrf
+from django.shortcuts import render
 
 def hello(request):
 	csrf_token = csrf.get_token(request)
@@ -11,3 +12,7 @@ def message(request):
 	if request.method == 'POST' and "message" in request.POST:
 		message = request.POST.get("message")
 	return HttpResponse(message)
+
+def hello_template(request):
+	context = {"csrf_token": csrf.get_token(request)}
+	return render(request, "hello_form.html", context=context)
